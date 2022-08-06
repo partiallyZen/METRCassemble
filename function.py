@@ -3,10 +3,25 @@
 from imports import *
 from variablestore import *
 
+def screen_clear():
+    # for mac and linux(here, os.name is 'posix')
+    if os.name == 'posix':
+        _ = os.system('clear')
+    else:
+        # for windows platfrom
+        _ = os.system('cls')
+    # print out some text
+
+def kevdate():
+    today = date.today().strftime('%Y-%m-%d')
+    print("Today is " + today + ".")
+    print("Adding this information to METRC Table...")
+    screen_clear()
+    return (today)
 
 def kevcount():
-    kevnum =+ 1
-    print("You have currently added " + str(kevnum) + " rows this session.")
+    kevnum = len(display)
+    print("You have currently added " + str(kevnum) + " rows this session.")  
     return (kevnum)
 
 
@@ -15,29 +30,30 @@ def kevcount():
   #  return
 
 
-def kevdate():
-    today = date.today().strftime('%Y-%m-%d')
-    screen_clear()
-    print("Today is " + today + ".")
-    print("Adding this to the METRC Table...")
-    return (today)
-
 
 def rfidscan():
+  while True:
     RFIDTAG = input("Please scan METRC RFID TAG now...")
     RFIDTAGs = str(RFIDTAG)
-    return (RFIDTAGs)  #add choice to rescan, or add to <metrcrow>
-
+    if int(len(RFIDTAGs)) != 24:
+      screen_clear()
+      print("ENTRY INVALID INTIALIZING RESCAN")
+    else:
+      print("You scanned valid METRC Tag: " + RFIDTAGs)
+      print("Adding this information to the table...")
+      time.sleep(2)
+      screen_clear()
+      return (RFIDTAGs)  #add choice to rescan, or add to <metrcrow> 
+      break
 
 def scalewght():
-    print("Please press the ENTER key on scale |")
+    WGHT = input("Please press the ENTER key on scale | ")
     # x=ser.readline()
     # d=x.decode()    #prints out the number only
     # WGHT=d[5:10]
-    WGHT = input()
-    print(WGHT + " grams")
+    print("The scale returned " + WGHT + " grams")
     return (WGHT)
-
+    # Needs input validations and testing
 
 def screen_clear():
     # for mac and linux(here, os.name is 'posix')
@@ -85,6 +101,4 @@ def harvestrow():
     print("Printing the following row(s) to METRC Template")
     display.append(harvestrow0)
     print(display)
-    kevcount()
     return (harvestrow0)
-
