@@ -6,7 +6,7 @@ from variablestore import *
 def screen_clear():
     # for mac and linux(here, os.name is 'posix')
     if os.name == 'posix':
-        _ = os.system('clear')
+        _ = os.system('clear')     # I love when menus clear and re-open...
     else:
         # for windows platfrom
         _ = os.system('cls')
@@ -15,27 +15,20 @@ def screen_clear():
 def kevdate():
     today = date.today().strftime('%Y-%m-%d')
     print("Today is " + today + ".")
-    print("Adding this information to METRC Table...")
+    print("Adding this information to METRC Table...") #kevdate with some flair
     screen_clear()
     return (today)
 
 def kevcount():
     kevnum = len(display)
-    print("You have currently added " + str(kevnum) + " rows this session.")  
+    print("You have currently added " + str(kevnum) + " rows this session.")  #Prog'd for the testing, stays because I like it 
     return (kevnum)
-
-
-#def tabledisp():
- #   print(tabulate(display, disphead, tablefmt="grid")
-  #  return
-
-
 
 def rfidscan():
   while True:
     RFIDTAG = input("Please scan METRC RFID TAG now...")
     RFIDTAGs = str(RFIDTAG)
-    if int(len(RFIDTAGs)) != 24:
+    if int(len(RFIDTAGs)) != 24:                                      #RFID Scan and Length verification. [Will need to update with **args]
       screen_clear()
       print("ENTRY INVALID INTIALIZING RESCAN")
     else:
@@ -49,21 +42,11 @@ def rfidscan():
 def scalewght():
     WGHT = input("Please press the ENTER key on scale | ")
     # x=ser.readline()
-    # d=x.decode()    #prints out the number only
+    # d=x.decode()    #prints out the number only                   uncomment these lines for serial input
     # WGHT=d[5:10]
     print("The scale returned " + WGHT + " grams")
     return (WGHT)
     # Needs input validations and testing
-
-def screen_clear():
-    # for mac and linux(here, os.name is 'posix')
-    if os.name == 'posix':
-        _ = os.system('clear')
-    else:
-        # for windows platfrom
-        _ = os.system('cls')
-    # print out some text
-
 
 def harvestloc():
     print(tabulate(table, headers = ["Numeral", "Room Name"], tablefmt="grid"))
