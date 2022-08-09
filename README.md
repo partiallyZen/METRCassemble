@@ -9,7 +9,6 @@ I need it to help streamline operations in a cannabis grow operation.
 
 ## Installation
 
-## Installation
 
 ### Pre-Requisites
 - [Python 3.10+](https://www.python.org/downloads/ "Python 3.10+")
