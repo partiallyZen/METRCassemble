@@ -12,13 +12,14 @@ I need it to help streamline operations in a cannabis grow operation.
 
 ### Pre-Requisites
 - [Python 3.10+](https://www.python.org/downloads/ "Python 3.10+")
-- Python Modules: time, serial, datetime, textwrap, tabulate, os, numpy, [See imports.py]
+- Python Modules [Run requirements.bat]: time, serial, datetime, textwrap, tabulate, os, numpy, [See imports.py]
 - RS-232C Port for Input from Scale
 - Scanner for METRC Tag Input (HID Mode)
 
 ### Install
 - Plug in RS-232C Cord and USB to PC/Mac/Potato
 - Plug USB scanner into same Potato
+- Run Device Manager to locate COM port for scale and put it into pyserial.py
 - Run main.py
 _It is just a script so it does not really have a installation. Run "main.py" with computer connected to scale and scanner._
 Follow the prompts. 
